@@ -1,3 +1,3 @@
 exports.register = (req, res) => {
-  res.send('this router is working')
-}
+  res.send('this router is working');
+} 
