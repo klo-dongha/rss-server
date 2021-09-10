@@ -1,8 +1,8 @@
-import express from 'express'
-const router = express.Router()
+import express from 'express';
+const router = express.Router();
 
-import NewsController from './news'
+import NewsController from './news/news.controller';
 
-router.get('/news', NewsController.register)
+router.use('/news', NewsController);
 
-module.exports = router
+module.exports = router;

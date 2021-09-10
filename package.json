@@ -19,11 +19,14 @@
   "dependencies": {
     "express": "^4.17.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1"
+    "babel-preset-stage-3": "^6.24.1",
+    "prettier": "^2.3.2"
   }
 }
