@@ -20,7 +20,7 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
-    "rss": "^1.2.2"
+    "rss-to-json": "^2.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

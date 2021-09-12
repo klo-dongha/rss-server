@@ -1,13 +1,13 @@
-import rss from 'rss';
 import RssService from '@/service/news/rss.service';
 
 import express from 'express';
 const router = express.Router();
 
-router.get('/rss', (req, res, next) => {
+router.get('/rss', async (req, res, next) => {
   const rssService = new RssService();
-  console.log('rss in');
-  res.status(200).json('hi');
+  const result = await rssService.getRss();
+  console.log(result);
+  res.status(200).json(result);
 });
 
 module.exports = router;

@@ -1,12 +1,9 @@
-import rss from 'rss';
-import RssService from '@/service/news/rss.service';
+import rssList from './news.rss.json';
+import { parse } from 'rss-to-json';
 
-exports;
-
-router.get('/rss', (req, res, next) => {
-  const rssService = new RssService();
-  console.log('rss in');
-  res.status(200).json('hi');
-});
-
-module.exports = router;
+export default class RssService {
+  async getRss() {
+    const rss = await parse('http://rss.kmib.co.kr/data/kmibRssAll.xml');
+    return rss;
+  }
+}
