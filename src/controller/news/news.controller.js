@@ -7,6 +7,7 @@ router.get('/rss', async (req, res, next) => {
   const rssService = new RssService();
   const result = await rssService.getRss();
   console.log(result);
+
   res.status(200).json(result);
 });
 

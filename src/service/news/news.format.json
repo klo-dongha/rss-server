@@ -1,0 +1,24 @@
+{
+  "경향신문": {
+    "format": {
+      "channel": {
+        "title": "",
+        "link": "",
+        "description": "description",
+        "lastBuildDate": "lastBuildDate",
+        "copyright": "copyright",
+        "webMaster": "webMaster",
+        "language": "language",
+        "image": "image",
+        "item": {
+          "title": "",
+          "link": "",
+          "description": "",
+          "dc:date": "",
+          "author": "",
+          "category": ""
+        }
+      }
+    }
+  }
+}

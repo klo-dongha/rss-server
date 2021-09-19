@@ -1,5 +1,16 @@
 {
-  "presets": ["env", "stage-3"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        },
+        "useBuiltIns": "entry",
+        "corejs": "2.0.0"
+      }
+    ]
+  ],
   "plugins": [
     [
       "module-resolver",
@@ -8,6 +19,7 @@
           "@": "./src"
         }
       }
-    ]
+    ],
+    "@babel/plugin-proposal-class-properties"
   ]
 }
