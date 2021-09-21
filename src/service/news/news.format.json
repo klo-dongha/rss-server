@@ -1,23 +1,39 @@
 {
   "경향신문": {
-    "format": {
-      "channel": {
+    "channel": {
+      "title": "",
+      "link": "",
+      "description": "",
+      "lastBuildDate": "",
+      "copyright": "",
+      "webMaster": "",
+      "language": "",
+      "image": "",
+      "item": {
         "title": "",
         "link": "",
-        "description": "description",
-        "lastBuildDate": "lastBuildDate",
-        "copyright": "copyright",
-        "webMaster": "webMaster",
-        "language": "language",
-        "image": "image",
-        "item": {
-          "title": "",
-          "link": "",
-          "description": "",
-          "dc:date": "",
-          "author": "",
-          "category": ""
-        }
+        "description": "",
+        "dc:date": "",
+        "author": "",
+        "category": ""
+      }
+    }
+  },
+  "JTBC": {
+    "channel": {
+      "title": "",
+      "link": "",
+      "description": "",
+      "language": "",
+      "copyright": "",
+      "category": "",
+      "pubDate": "",
+      "item": {
+        "title": "",
+        "link": "",
+        "description": "",
+        "published": "",
+        "created": ""
       }
     }
   }

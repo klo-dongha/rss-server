@@ -1,16 +1,18 @@
 {
-  "경향신문": {
-    "전체뉴스": "https://www.khan.co.kr/rss/rssdata/total_news.xml",
-    "정치": "https://www.khan.co.kr/rss/rssdata/politic_news.xml",
-    "경제": "https://www.khan.co.kr/rss/rssdata/economy_news.xml",
-    "사회": "https://www.khan.co.kr/rss/rssdata/society_news.xml",
-    "국제": "https://www.khan.co.kr/rss/rssdata/kh_world.xml",
-    "스포츠": "http://www.khan.co.kr/rss/rssdata/kh_sports.xml",
-    "문화": "https://www.khan.co.kr/rss/rssdata/culture_news.xml",
-    "연예": "https://www.khan.co.kr/rss/rssdata/kh_entertainment.xml",
-    "IT": "http://www.khan.co.kr/rss/rssdata/it_news.xml",
-    "전국": "https://www.khan.co.kr/rss/rssdata/local_news.xml",
-    "인물": "https://www.khan.co.kr/rss/rssdata/people_news.xml",
-    "오피니언": "https://www.khan.co.kr/rss/rssdata/opinion_news.xml"
+  "JTBC": {
+    "속보": "https://fs.jtbc.joins.com/RSS/newsflash.xml",
+    "정치": "https://fs.jtbc.joins.com/RSS/politics.xml",
+    "경제": "https://fs.jtbc.joins.com/RSS/economy.xml",
+    "사회": "https://fs.jtbc.joins.com/RSS/society.xml",
+    "국제": "https://fs.jtbc.joins.com/RSS/international.xml",
+    "문화": "https://fs.jtbc.joins.com/RSS/culture.xml",
+    "연예": "https://fs.jtbc.joins.com/RSS/entertainment.xml",
+    "스포츠": "https://fs.jtbc.joins.com/RSS/sports.xml",
+    "풀영상": "https://fs.jtbc.joins.com/RSS/fullvideo.xml",
+    "뉴스랭킹": "https://fs.jtbc.joins.com/RSS/newsrank.xml",
+    "뉴스룸": "https://fs.jtbc.joins.com/RSS/newsroom.xml",
+    "아침&": "https://fs.jtbc.joins.com/RSS/morningand.xml",
+    "썰전 라이브": "https://fs.jtbc.joins.com/RSS/ssulzunlive.xml",
+    "정치부회의": "https://fs.jtbc.joins.com/RSS/politicaldesk.xml"
   }
 }
