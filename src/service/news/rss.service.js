@@ -6,9 +6,7 @@ import moment from 'moment';
 
 export default class RssService {
   async getRssResult() {
-    const rssResult = await parse(
-      'https://rss.nocutnews.co.kr/category/society.xml'
-    );
+    const rssResult = await parse('https://rss.hankyung.com/feed/economy.xml');
     console.log('rssResult', rssResult.items[0]);
     return rssResult;
   }
@@ -38,7 +36,7 @@ export default class RssService {
           data.description_summary = item.description
             ? item.description.substring(0, 100) + '...'
             : null;
-          data.description = type === 'type' ? null : item.description;
+          data.description = type === 'summary' ? null : item.description;
           data.created = item.created
             ? moment(item.created).format('YYYY-MM-DD HH:mm:ss')
             : null;
