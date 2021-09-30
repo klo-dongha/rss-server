@@ -15,7 +15,6 @@ export default class ElasticSearch {
   async index(options) {
     try {
       const result = await ElasticSearch.client.index(options);
-      console.log('insert result : ', result);
       return result;
     } catch (e) {
       throw e;

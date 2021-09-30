@@ -5,9 +5,14 @@ const router = express.Router();
 
 router.post('/rss', async (req, res, next) => {
   const rssService = new RssService();
-  const result = await rssService.getRss();
-  // console.log(result);
+  await rssService.setFullRss();
+  await rssService.setSummaryRss();
+  res.status(200).json();
+});
 
+router.get('/rss-result', async (req, res, next) => {
+  const rssService = new RssService();
+  const result = await rssService.getRssResult();
   res.status(200).json(result);
 });
 

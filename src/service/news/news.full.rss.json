@@ -1,0 +1,13 @@
+{
+  "YTN": {
+    "헤드라인": "http://www.yonhapnewstv.co.kr/category/news/headline/feed/",
+    "정치": "http://www.yonhapnewstv.co.kr/category/news/politics/feed/",
+    "경제": "http://www.yonhapnewstv.co.kr/category/news/economy/feed/",
+    "사회": "http://www.yonhapnewstv.co.kr/category/news/society/feed/",
+    "지역": "http://www.yonhapnewstv.co.kr/category/news/local/feed/",
+    "세계": "http://www.yonhapnewstv.co.kr/category/news/international/feed/",
+    "문화ㆍ연예": "http://www.yonhapnewstv.co.kr/category/news/culture/feed/",
+    "스포츠": "http://www.yonhapnewstv.co.kr/category/news/sports/feed/",
+    "날씨": "http://www.yonhapnewstv.co.kr/category/news/weather/feed/"
+  }
+}
