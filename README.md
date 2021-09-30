@@ -13,8 +13,18 @@ step3. Elasticsearch에 저장된 url을 통한 크롤링
 step4. Elasticsearch 저장  
 step5. 원하는 자료 및 통계처리로 client 전송
 
-> **[지원하지 않는 신문사 리스트]**
+> **진행 예정**
+
+- description 입력시 html 태그 제거
+- RSS에서 description을 요약본으로 주는 신문사들 스크래핑 후 데이터 저장
+
+> **지원하지 않는 신문사 리스트**
 
 - RSS를 지원하지 않는 신문사 : OSEN, MBC
-- 기존 RSS와 포멧이 다름 : KBS, KBS World RSS
-- description 없음 : 한국경제 RSS
+- 기존 RSS와 포멧이 다름 : KBS, KBS World
+- description 없음 : 한국경제
+
+> **신문사 특징**
+
+- SBS : RSS를 통해 제공해줄 수 있는 데이터가 가장 모범적인 곳
+- 한겨레 : description에 html 태그 포함
