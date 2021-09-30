@@ -5,19 +5,19 @@ import Elasticsearch from '@/elasticsearch/elasticsearch';
 import moment from 'moment';
 
 export default class RssService {
-  async setSummaryRss() {
-    await this.insertRssData(rssSummaryObj, 'summary');
-  }
-
-  async setFullRss() {
-    await this.insertRssData(rssFullObj, 'full');
-  }
-
   async getRssResult() {
     const rssResult = await parse(
-      'http://www.yonhapnewstv.co.kr/category/news/politics/feed/'
+      'https://rss.nocutnews.co.kr/category/society.xml'
     );
+    console.log('rssResult', rssResult.items[0]);
     return rssResult;
+  }
+
+  async setRss() {
+    // summary ver
+    await this.insertRssData(rssSummaryObj, 'summary');
+    // full ver
+    await this.insertRssData(rssFullObj, 'full');
   }
 
   /** elasticsearch insert */
@@ -39,8 +39,14 @@ export default class RssService {
             ? item.description.substring(0, 100) + '...'
             : null;
           data.description = type === 'type' ? null : item.description;
-          data.created = moment(item.created).format('YYYY-MM-DD HH:mm:ss');
-          data.published = moment(item.published).format('YYYY-MM-DD HH:mm:ss');
+          data.created = item.created
+            ? moment(item.created).format('YYYY-MM-DD HH:mm:ss')
+            : null;
+          data.published = item.published
+            ? moment(item.published).format('YYYY-MM-DD HH:mm:ss')
+            : null;
+          data.enclosures = item.enclosures ? item.enclosures : null;
+          data.media = item.enclosures ? item.media : null;
 
           // insert data
           await elasticsearch.index({

@@ -5,8 +5,7 @@ const router = express.Router();
 
 router.post('/rss', async (req, res, next) => {
   const rssService = new RssService();
-  await rssService.setFullRss();
-  await rssService.setSummaryRss();
+  await rssService.setRss();
   res.status(200).json();
 });
 
