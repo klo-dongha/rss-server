@@ -14,5 +14,63 @@
     "아침&": "https://fs.jtbc.joins.com/RSS/morningand.xml",
     "썰전 라이브": "https://fs.jtbc.joins.com/RSS/ssulzunlive.xml",
     "정치부회의": "https://fs.jtbc.joins.com/RSS/politicaldesk.xml"
+  },
+  "SBS": {
+    "정치": "https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=01&plink=RSSREADER",
+    "경제": "https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=02&plink=RSSREADER",
+    "사회": "https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=03&plink=RSSREADER",
+    "생활/문화": "https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=07&plink=RSSREADER",
+    "극제/글로벌": "https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=08&plink=RSSREADER",
+    "연예/방송": "https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=14&plink=RSSREADER",
+    "스포츠": "https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=09&plink=RSSREADER"
+  },
+  "MBN": {
+    "정치": "https://www.mbn.co.kr/rss/politics/",
+    "경제": "https://www.mbn.co.kr/rss/economy/",
+    "사회": "https://www.mbn.co.kr/rss/society/",
+    "국제": "https://www.mbn.co.kr/rss/international/",
+    "문화": "https://www.mbn.co.kr/rss/culture/",
+    "연예": "https://www.mbn.co.kr/rss/enter/",
+    "스포츠": "https://www.mbn.co.kr/rss/sports/",
+    "생활.건강": "https://www.mbn.co.kr/rss/health/"
+  },
+  "헤럴드경제": {
+    "뉴스": "http://biz.heraldcorp.com/common/rss_xml.php?ct=1",
+    "오피니언": "http://biz.heraldcorp.com/common/rss_xml.php?ct=2",
+    "연예ㆍ스포츠": "http://biz.heraldcorp.com/common/rss_xml.php?ct=3",
+    "재테크": "http://biz.heraldcorp.com/common/rss_xml.php?ct=4",
+    "라이프": "http://biz.heraldcorp.com/common/rss_xml.php?ct=5",
+    "게임세상": "http://biz.heraldcorp.com/common/rss_xml.php?ct=6"
+  },
+  "한국경제TV": {
+    "뉴스": "https://help.wowtv.co.kr/serviceinfo/newsstand/FeedRss/latest",
+    "증권": "https://help.wowtv.co.kr/serviceinfo/newsstand/FeedRss/stock",
+    "경제": "https://help.wowtv.co.kr/serviceinfo/newsstand/FeedRss/economy",
+    "산업·IT": "https://help.wowtv.co.kr/serviceinfo/newsstand/FeedRss/init",
+    "정치·사회·국제": "https://help.wowtv.co.kr/serviceinfo/newsstand/FeedRss/politics",
+    "생활문화": "https://help.wowtv.co.kr/serviceinfo/newsstand/FeedRss/life",
+    "취업": "https://help.wowtv.co.kr/serviceinfo/newsstand/FeedRss/job"
+  },
+  "한겨레": {
+    "표지이야기": "http://h21.hani.co.kr/rss/cover/",
+    "특집": "http://h21.hani.co.kr/rss/special/",
+    "정치": "http://h21.hani.co.kr/rss/politics/",
+    "경제": "http://h21.hani.co.kr/rss/economy/",
+    "사회": "http://h21.hani.co.kr/rss/society/",
+    "세계": "http://h21.hani.co.kr/rss/world/",
+    "문화": "http://h21.hani.co.kr/rss/culture/",
+    "멀티미디어": "http://h21.hani.co.kr/rss/photo/",
+    "커뮤니티": "http://h21.hani.co.kr/rss/reader/"
+  },
+  "프레시안": {
+    "표지이야기": "http://h21.hani.co.kr/rss/cover/",
+    "특집": "http://h21.hani.co.kr/rss/special/",
+    "정치": "http://h21.hani.co.kr/rss/politics/",
+    "경제": "http://h21.hani.co.kr/rss/economy/",
+    "사회": "http://h21.hani.co.kr/rss/society/",
+    "세계": "http://h21.hani.co.kr/rss/world/",
+    "문화": "http://h21.hani.co.kr/rss/culture/",
+    "멀티미디어": "http://h21.hani.co.kr/rss/photo/",
+    "커뮤니티": "http://h21.hani.co.kr/rss/reader/"
   }
 }
