@@ -17,6 +17,8 @@ step5. 원하는 자료 및 통계처리로 client 전송
 
 - description 입력시 html 태그 제거
 - RSS에서 description을 요약본으로 주는 신문사들 스크래핑 후 데이터 저장
+- node cron을 통한 스케줄링 또는 airflow 사용 고려
+- 뉴스 수정 건에 대한 부분 고려
 
 > **지원하지 않는 신문사 리스트**
 
