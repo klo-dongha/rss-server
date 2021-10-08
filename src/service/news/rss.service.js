@@ -6,7 +6,9 @@ import moment from 'moment';
 
 export default class RssService {
   async getRssResult() {
-    const rssResult = await parse('https://rss.hankyung.com/feed/economy.xml');
+    const rssResult = await parse(
+      'https://www.fnnews.com/rss/r20/fn_realnews_politics.xml'
+    );
     console.log('rssResult', rssResult.items[0]);
     return rssResult;
   }

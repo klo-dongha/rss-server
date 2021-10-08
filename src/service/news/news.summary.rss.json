@@ -72,5 +72,30 @@
     "문화": "http://h21.hani.co.kr/rss/culture/",
     "멀티미디어": "http://h21.hani.co.kr/rss/photo/",
     "커뮤니티": "http://h21.hani.co.kr/rss/reader/"
+  },
+  "파이낸셜뉴스": {
+    "정치": "https://www.fnnews.com/rss/r20/fn_realnews_politics.xml",
+    "국제": "https://www.fnnews.com/rss/r20/fn_realnews_international.xml",
+    "사회": "https://www.fnnews.com/rss/r20/fn_realnews_society.xml",
+    "교육": "https://www.fnnews.com/rss/r20/fn_realnews_edu.xml",
+    "피플": "https://www.fnnews.com/rss/r20/fn_realnews_people.xml",
+    "경제": "https://www.fnnews.com/rss/r20/fn_realnews_economy.xml",
+    "증권": "https://www.fnnews.com/rss/r20/fn_realnews_stock.xml",
+    "금융": "https://www.fnnews.com/rss/r20/fn_realnews_finance.xml",
+    "부동산": "https://www.fnnews.com/rss/r20/fn_realnews_realestate.xml",
+    "산업": "https://www.fnnews.com/rss/r20/fn_realnews_industry.xml",
+    "IT": "https://www.fnnews.com/rss/r20/fn_realnews_it.xml",
+    "의학·과학": "https://www.fnnews.com/rss/r20/fn_realnews_medical.xml",
+    "생활경제": "https://www.fnnews.com/rss/r20/fn_realnews_circulation.xml",
+    "사설·칼럼": "https://www.fnnews.com/rss/r20/fn_realnews_column.xml",
+    "외부칼럼": "https://www.fnnews.com/rss/r20/fn_realnews_outcolumn.xml",
+    "연예": "https://www.fnnews.com/rss/r20/fn_realnews_ent.xml",
+    "스포츠": "https://www.fnnews.com/rss/r20/fn_realnews_sports.xml",
+    "패션/뷰티": "https://www.fnnews.com/rss/r20/fn_realnews_fasion.xml",
+    "푸드·리빙": "https://www.fnnews.com/rss/r20/fn_realnews_living.xml",
+    "레저·헬스": "https://www.fnnews.com/rss/r20/fn_realnews_health.xml",
+    "자동차": "https://www.fnnews.com/rss/r20/fn_realnews_car.xml",
+    "문화": "https://www.fnnews.com/rss/r20/fn_realnews_culture.xml",
+    "블록포스트": "https://www.fnnews.com/rss/r20/fn_realnews_blockpost.xml"
   }
 }
