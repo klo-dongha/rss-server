@@ -18,11 +18,11 @@
   "homepage": "https://github.com/kkodongha/rss-server#readme",
   "dependencies": {
     "@elastic/elasticsearch": "^7.13.0",
+    "dayjs": "^1.11.3",
     "express": "^4.17.1",
-    "moment": "^2.29.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
-    "puppeteer": "^10.4.0",
+    "puppeteer": "^15.3.2",
     "rss-to-json": "^2.0.2"
   },
   "devDependencies": {

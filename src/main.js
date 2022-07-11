@@ -2,6 +2,18 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import api from './controller';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
+import tz from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+
+/* =======================
+    DAY JS CONFIGURATION
+==========================*/
+dayjs.extend(utc);
+dayjs.extend(tz);
+dayjs.tz.setDefault('Asia/Seoul');
+dayjs.locale('ko');
 
 /* =======================
     EXPRESS CONFIGURATION
