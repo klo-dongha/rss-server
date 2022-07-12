@@ -1,6 +1,8 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { Server } from 'http';
 import morgan from 'morgan';
+import helmet from 'helmet';
+import cors from 'cors';
 import Controller from './controller';
 
 class ExpressApp {
@@ -22,12 +24,11 @@ class ExpressApp {
   }
 
   private setMiddleware() {
-    this.app.set('case sensitive routing', true);
-    this.app.set('case sensitive routing', true);
+    this.app.set('case sensitive routing', true); // url 대소문자 구분 활성화
     this.app.use(express.urlencoded({ limit: '50mb', extended: true }));
     this.app.use(express.json({ limit: '50mb' }));
     // this.app.use(cookieParser())
-    this.app.set('trust proxy', true);
+    // this.app.set('trust proxy', true);
 
     // 헤더 설정
     this.app.use(function (req: Request, res: Response, next: NextFunction) {
@@ -46,15 +47,26 @@ class ExpressApp {
     });
 
     // Cors
-    // this.app.use(
-    //   cors({
-    //       origin: [...Object.values(ConfigManager.config.url)],
-    //       credentials: true,
-    //   })
-    // )
+    this.app.use(
+      cors({
+        origin: [...Object.values('http://127.0.0.1:3000')],
+        credentials: true,
+      })
+    );
 
     // 보안 처리
-    // this.app.use(helmet())
+    this.app.use(helmet());
+
+    this.app.use(
+      morgan(process.env.NODE_ENV !== 'development' ? 'combined' : 'dev', {
+        stream: {
+          write: (message) => {
+            console.log(message.trim());
+            // Logger.webLogger.info(message.trim());
+          },
+        },
+      })
+    );
   }
 
   // private setErrorHandler() {
