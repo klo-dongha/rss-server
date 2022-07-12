@@ -1,7 +1,8 @@
-import rssSummaryObj from './news.summary.rss.json';
-import rssFullObj from './news.full.rss.json';
+import { NewsAddress, NewsRss } from '~/type/news';
+import rssSummaryObj from '~/service/news/news.summary.rss.json';
+// import rssFullObj from '~/service/news/news.full.rss.json';
 import { parse } from 'rss-to-json';
-import Elasticsearch from '@/elasticsearch/elasticsearch';
+import Elasticsearch from '~/elasticsearch/elasticsearch';
 import puppeteer from 'puppeteer';
 import dayjs from 'dayjs';
 
@@ -12,9 +13,9 @@ export default class RssService {
    * @return {*} - rss 결과
    * @memberof RssService
    */
-  async getSampleRssOne(rssUrl) {
+  async getSampleRssOne(rssUrl: string) {
     try {
-      const rssResult = await parse(rssUrl);
+      const rssResult: any = await parse(rssUrl, {});
       return rssResult;
     } catch (e) {
       console.log('e', e);
@@ -28,34 +29,31 @@ export default class RssService {
    * @return {*} - rss 결과
    * @memberof RssService
    */
-  async getSampleRssCopyright(copyright, type = 'summary') {
-    const rssList = rssSummaryObj;
+  async getSampleRssCopyright(copyright: string, type: string = 'summary') {
+    const rssList: any = rssSummaryObj;
     const rssResultArr = [];
     for (const k2 in rssList[copyright]) {
       const rssAddress = rssList[copyright][k2];
-      const rssResult = await parse(rssAddress);
+      const rssResult = await parse(rssAddress, {});
       console.log('rssAddress', k2, rssAddress);
       const rssResultItem = rssResult.items;
       for (const item of rssResultItem) {
         try {
           // set body
-          const data = {};
-          data.copyright = copyright;
-          data.category = k2;
-          data.title = item.title;
-          data.link = item.link;
-          data.description_summary = item.description
-            ? item.description.substring(0, 100) + '...'
-            : null;
-          data.description = type === 'summary' ? null : item.description;
-          data.created = item.created
-            ? dayjs(item.created).format('YYYY-MM-DD HH:mm:ss')
-            : null;
-          data.published = item.published
-            ? dayjs(item.published).format('YYYY-MM-DD HH:mm:ss')
-            : null;
-          data.enclosures = item.enclosures ? item.enclosures : null;
-          data.media = item.enclosures ? item.media : null;
+          const data: NewsRss = {
+            copyright: copyright,
+            category: k2,
+            title: item.title,
+            link: item.link,
+            description_summary: item.description
+              ? item.description.substring(0, 100) + '...'
+              : null,
+            description: type === 'summary' ? null : item.description,
+            created: item.created ? dayjs(item.created).toDate() : null,
+            published: item.published ? dayjs(item.published).toDate() : null,
+            enclosures: item.enclosures ? item.enclosures : null,
+            media: item.enclosures ? item.media : null,
+          };
 
           rssResultArr.push(data);
         } catch (e) {
@@ -72,7 +70,7 @@ export default class RssService {
    * @return {*}
    * @memberof RssService
    */
-  async getSampleScrapping(scrappingUrl) {
+  async getSampleScrapping(scrappingUrl: string) {
     // await (async () => {
     //   const browser = await puppeteer.launch();
     //   const page = await browser.newPage();
@@ -108,7 +106,7 @@ export default class RssService {
    */
   async setRss() {
     // summary ver
-    await this.insertRssData(rssSummaryObj, 'summary');
+    await this.insertRssData(rssSummaryObj as any, 'summary');
     // full ver
     // await this.insertRssData(rssFullObj, 'full');
   }
@@ -119,7 +117,7 @@ export default class RssService {
    * @param {string} [type='summary'] - summary: 요약 기사 버전, full: 전체 기사 버전 [description에 데이터를 넣을지 말지를 정의]
    * @memberof RssService
    */
-  async insertRssData(rssList, type = 'summary') {
+  async insertRssData(rssList: any, type: string = 'summary') {
     const elasticsearch = new Elasticsearch();
     for (const k1 in rssList) {
       console.log(k1 + ' start !');
@@ -127,31 +125,28 @@ export default class RssService {
         try {
           const rssAddress = rssList[k1][k2];
           console.log('rssAddress', k2, rssAddress);
-          const rssResult = await parse(rssAddress);
+          const rssResult = await parse(rssAddress, {});
           const rssResultItem = rssResult.items;
 
           for (const item of rssResultItem) {
             // set body
-            const data = {};
-            data.copyright = k1;
-            data.category = k2;
-            data.title = item.title;
-            data.link = item.link;
-            data.description_summary = item.description
-              ? item.description.substring(0, 100) + '...'
-              : null;
-            data.description = type === 'summary' ? null : item.description;
-            data.created = item.created
-              ? dayjs(item.created).format('YYYY-MM-DD HH:mm:ss')
-              : null;
-            data.published = item.published
-              ? dayjs(item.published).format('YYYY-MM-DD HH:mm:ss')
-              : null;
-            data.enclosures = item.enclosures ? item.enclosures : null;
-            data.media = item.enclosures ? item.media : null;
+            const data: NewsRss = {
+              copyright: k1,
+              category: k2,
+              title: item.title,
+              link: item.link,
+              description_summary: item.description
+                ? item.description.substring(0, 100) + '...'
+                : null,
+              description: type === 'summary' ? null : item.description,
+              created: item.created ? dayjs(item.created).toDate() : null,
+              published: item.published ? dayjs(item.published).toDate() : null,
+              enclosures: item.enclosures ? item.enclosures : null,
+              media: item.enclosures ? item.media : null,
+            };
 
             // insert data
-            await elasticsearch.index({
+            await elasticsearch.createIndex({
               index: 'news',
               id: data.link,
               body: data,

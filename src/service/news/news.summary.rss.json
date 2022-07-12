@@ -72,17 +72,6 @@
     "멀티미디어": "http://h21.hani.co.kr/rss/photo/",
     "커뮤니티": "http://h21.hani.co.kr/rss/reader/"
   },
-  "프레시안": {
-    "표지이야기": "http://h21.hani.co.kr/rss/cover/",
-    "특집": "http://h21.hani.co.kr/rss/special/",
-    "정치": "http://h21.hani.co.kr/rss/politics/",
-    "경제": "http://h21.hani.co.kr/rss/economy/",
-    "사회": "http://h21.hani.co.kr/rss/society/",
-    "세계": "http://h21.hani.co.kr/rss/world/",
-    "문화": "http://h21.hani.co.kr/rss/culture/",
-    "멀티미디어": "http://h21.hani.co.kr/rss/photo/",
-    "커뮤니티": "http://h21.hani.co.kr/rss/reader/"
-  },
   "파이낸셜뉴스": {
     "정치": "https://www.fnnews.com/rss/r20/fn_realnews_politics.xml",
     "국제": "https://www.fnnews.com/rss/r20/fn_realnews_international.xml",
