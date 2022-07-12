@@ -5,6 +5,7 @@ import Controller from './controller';
 
 class ExpressApp {
   public app = express();
+  public server: any = null;
   public port = 3000;
 
   constructor() {
@@ -61,13 +62,25 @@ class ExpressApp {
   // }
 
   run() {
-    try {
-      this.app.listen(this.port, () => {
-        console.log(`express app listening (http://127.0.0.1:${this.port})`);
+    return new Promise<Server>((resolve, reject) => {
+      try {
+        this.server = this.app.listen(this.port, () => {
+          console.log(`express app listening (http://127.0.0.1:${this.port})`);
+          resolve(this.server);
+        });
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+  close() {
+    return new Promise<void>((resolve, reject) => {
+      this.server.close((err: any) => {
+        if (err) {
+          reject(err);
+        } else resolve();
       });
-    } catch (err) {
-      throw err;
-    }
+    });
   }
 }
 

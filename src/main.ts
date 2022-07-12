@@ -9,25 +9,24 @@ process.on('uncaughtException', (error) => {
   console.log(error);
 });
 
-// process.umask(0o000);
-// async () => {
-//   /* =======================
-//     DAY JS CONFIGURATION
-// ==========================*/
-//   dayjs.extend(utc);
-//   dayjs.extend(tz);
-//   dayjs.tz.setDefault('Asia/Seoul');
-//   dayjs.locale('ko');
-//   await new ExpressApp().run();
-
-//   // process.on('SIGTERM', () => {
-//   //   server.close(() => process.exit(0));
-//   // });
-// };
-
 process.umask(0o000);
 (async () => {
+  //   /* =======================
+  //     DAY JS CONFIGURATION
+  // ==========================*/
+  dayjs.extend(utc);
+  dayjs.extend(tz);
+  dayjs.tz.setDefault('Asia/Seoul');
+  dayjs.locale('ko');
+
+  // Express Run
   const server = await new ExpressApp().run();
+
+  // 프로세스 종료 전 핸들러
+  process.on('SIGTERM', () => {
+    // Express Close
+    server.close(() => process.exit(0));
+  });
 })().catch((error) => {
   throw error;
 });
