@@ -84,8 +84,9 @@ export default class RssService {
     const page = await browser.newPage();
     await page.goto(scrappingUrl);
 
-    const articlebody = await page.$('#articlebody > div:nth-child(1)');
+    const articlebody = await page.$('[itemprop="articleBody"]');
     if (!articlebody) {
+      await browser.close();
       return '없음';
     }
     // console.log('articlebody', articlebody);
@@ -106,9 +107,9 @@ export default class RssService {
    */
   async setRss() {
     // summary ver
-    await this.insertRssData(rssSummaryObj as any, 'summary');
+    await this.setRssData(rssSummaryObj as any, 'summary');
     // full ver
-    // await this.insertRssData(rssFullObj, 'full');
+    // await this.setRssData(rssFullObj, 'full');
   }
 
   /**
@@ -117,7 +118,7 @@ export default class RssService {
    * @param {string} [type='summary'] - summary: 요약 기사 버전, full: 전체 기사 버전 [description에 데이터를 넣을지 말지를 정의]
    * @memberof RssService
    */
-  async insertRssData(rssList: any, type: string = 'summary') {
+  async setRssData(rssList: any, type: string = 'summary') {
     const elasticsearch = new Elasticsearch();
     for (const k1 in rssList) {
       console.log(k1 + ' start !');
@@ -162,5 +163,5 @@ export default class RssService {
     console.log(type + ' end!');
   }
 
-  async getScrapping() {}
+  async setDescription() {}
 }
