@@ -1,5 +1,6 @@
+import CustomError from '~/utils/customError';
+import AuthService from '~/utils/auth.service';
 import bcrypt from 'bcrypt';
-
 export default class LoginService {
   /**
    * 로그인 로직
@@ -9,30 +10,40 @@ export default class LoginService {
    * @memberof LoginService
    */
   async login(userId: string, userPassword: string) {
-    console.log('LoginService in');
-    console.log('userId', userId);
-    console.log('userPassword', userPassword);
-
-    const isValid = await this.checkUser(userId, userPassword);
-    if() {
-
+    // 1. 유저 존재 여부 체크
+    const exists: boolean = await this.findUser(userId, userPassword);
+    if (!exists) {
+      throw new CustomError('해당 계정이 존재하지 않습니다.');
     }
 
-    return;
-  }
-
-  async checkUser(userId: string, userPassword: string) {
-    // 아이디 비교
-    const isMatchId = await this.compareId(userId);
-    if() {
-      
-    }
-
-    // 패스워드 비교
-    const isMatchPassword = await this.comparePassword(
+    // 2. 패스워드 체크
+    const isMatchPassword: boolean = await this.comparePassword(
       userPassword,
       '$2b$10$uhg.L.EFUZLPFJrZSc9dDu2BcMnWHWskVyrPsOxJCxutbVHmA9exa'
     );
+    if (!isMatchPassword) {
+      throw new CustomError('패스워드가 일치하지 않습니다.');
+    }
+
+    // 3. 토큰 발행
+    const authService = new AuthService();
+    const refreshToken: string = await authService.createRefreshToken(userId);
+    const accessToken: string = await authService.createAccessToken(userId);
+
+    return { refreshToken, accessToken };
+  }
+
+  /**
+   * 아이디 존재 여부 체크
+   * @param {string} userId
+   * @param {string} userPassword
+   * @return {*}  {Promise<boolean>}
+   * @memberof LoginService
+   */
+  async findUser(userId: string, userPassword: string): Promise<boolean> {
+    // 아이디 비교
+    const isMatchId: boolean = await this.compareId(userId);
+    return isMatchId;
   }
 
   async compareId(userId: string) {
@@ -46,9 +57,15 @@ export default class LoginService {
    * @return {*}
    * @memberof LoginService
    */
-  async comparePassword(userPassword: string, hashPassword: string) {
-    // password 123
-    const match = await bcrypt.compare(userPassword, hashPassword);
-    return match;
+  async comparePassword(
+    userPassword: string,
+    hashPassword: string
+  ): Promise<boolean> {
+    try {
+      const match: boolean = await bcrypt.compare(userPassword, hashPassword);
+      return match;
+    } catch (e) {
+      throw e;
+    }
   }
 }

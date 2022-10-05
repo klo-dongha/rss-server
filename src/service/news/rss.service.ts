@@ -1,4 +1,4 @@
-import { NewsAddress, NewsRss } from '~/type/news';
+import { NewsRss } from '~/type/news';
 import rssSummaryObj from '~/service/news/news.summary.rss.json';
 // import rssFullObj from '~/service/news/news.full.rss.json';
 import { parse } from 'rss-to-json';

@@ -1,3 +1,9 @@
 {
-  "expressPort": 3009
+  "expressPort": 3009,
+  "path": {
+    "files": "volume/files",
+    "assets": "volume/assets",
+    "logs": "volume/logs",
+    "tmp": "volume/files/tmp"
+  }
 }

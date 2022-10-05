@@ -1,9 +1,10 @@
+import Controller from './controller';
+import ErrorMiddleware from './middlewares/error.middleware';
 import express, { Request, Response, NextFunction } from 'express';
 import { Server } from 'http';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
-import Controller from './controller';
 
 class ExpressApp {
   public app = express();
@@ -13,7 +14,7 @@ class ExpressApp {
   constructor() {
     this.setMiddleware();
     this.setController();
-    // this.setErrorHandler();
+    this.setErrorHandler();
   }
 
   // 컨트롤러 설정
@@ -69,9 +70,9 @@ class ExpressApp {
     );
   }
 
-  // private setErrorHandler() {
-  //   this.app.use(ErrorMiddleware.middleware)
-  // }
+  private setErrorHandler() {
+    this.app.use(ErrorMiddleware.middleware);
+  }
 
   run() {
     return new Promise<Server>((resolve, reject) => {
