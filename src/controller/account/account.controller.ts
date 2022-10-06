@@ -39,16 +39,18 @@ export default class AccountController {
       const result = await accountService.login(userId, userPassword);
 
       // 토큰 쿠키 발행(auid: access token, ruid: refresh token)
+
       // 세션쿠키 발행
       res
-        .sendStatus(200)
+        .status(200)
         .cookie('auid', result.accessToken, {
           httpOnly: false,
         })
-        .cookie('auid', result.accessToken, {
+        .cookie('ruid', result.refreshToken, {
           // 로그인 유지기능 사용시 도메인쿠키 30일
           httpOnly: true,
-        });
+        })
+        .json({ result: true });
       // res.status(200).json(result);
     } catch (err) {
       next(err);

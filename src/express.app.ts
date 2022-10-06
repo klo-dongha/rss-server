@@ -5,6 +5,7 @@ import { Server } from 'http';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 class ExpressApp {
   public app = express();
@@ -33,6 +34,8 @@ class ExpressApp {
 
     // 헤더 설정
     this.app.use(function (req: Request, res: Response, next: NextFunction) {
+      res.header('Access-Control-Allow-Credentials', 'true');
+      res.header('Access-Control-Allow-Origin', req.headers.origin);
       res.header(
         'Access-Control-Allow-Methods',
         'GET, POST, PUT, DELETE, OPTIONS, PATCH'
@@ -46,11 +49,15 @@ class ExpressApp {
       );
       next();
     });
-
+    this.app.use(cookieParser());
     // Cors
     this.app.use(
       cors({
-        origin: ['http://127.0.0.1:3001'],
+        origin: [
+          'http://127.0.0.1:3001',
+          'http://localhost:3001',
+          'http://local.rss.co.kr:3000',
+        ],
         credentials: true,
       })
     );

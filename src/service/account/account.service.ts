@@ -9,7 +9,10 @@ export default class LoginService {
    * @return {*}
    * @memberof LoginService
    */
-  async login(userId: string, userPassword: string) {
+  async login(
+    userId: string,
+    userPassword: string
+  ): Promise<{ refreshToken: string; accessToken: string }> {
     // 1. 유저 존재 여부 체크
     const exists: boolean = await this.findUser(userId, userPassword);
     if (!exists) {
